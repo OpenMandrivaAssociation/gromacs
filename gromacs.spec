@@ -1,5 +1,5 @@
 %define name gromacs
-%define version 3.3.1
+%define version 3.3.2
 %define release %mkrel 1
 
 Summary: Molecular dynamics package (non-mpi version)
@@ -9,7 +9,7 @@ Release: %release
 License: GPL
 Group: Sciences/Chemistry
 Buildroot: %_tmppath/%name-root
-Requires: fftw >= 2.1.3 
+Requires: fftw >= 2.1.3
 Source: ftp://ftp.gromacs.org/pub/gromacs/%name-%version.tar.bz2
 Buildrequires: libfftw-devel
 Buildrequires: X11-devel
@@ -19,8 +19,8 @@ URL: http://www.gromacs.org
 GROMACS is a versatile and extremely well optimized package
 to perform molecular dynamics computer simulations and
 subsequent trajectory analysis. It is developed for
-biomolecules like proteins, but the extremely high 
-performance means it is used also in several other field 
+biomolecules like proteins, but the extremely high
+performance means it is used also in several other field
 like polymer chemistry and solid state physics. This
 version has the dynamic libs and executables; to hack new
 utility programs you also need the headers and static
@@ -38,14 +38,14 @@ Group: Development/C++
 This package contains header files, static libraries,
 and a program example for the GROMACS molecular
 dynamics software. You need it if you want to write your
-own analysis programs. 
+own analysis programs.
 
 %prep
 %setup -q
 
 %build
 %configure --disable-rpath
-%make 
+%make
 
 %install
 %makeinstall

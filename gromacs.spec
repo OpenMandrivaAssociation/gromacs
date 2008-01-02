@@ -8,6 +8,7 @@ Version: %version
 Release: %release
 License: GPL
 Group: Sciences/Chemistry
+Buildroot: %_tmppath/%name-root
 Requires: fftw >= 2.1.3
 Source: ftp://ftp.gromacs.org/pub/gromacs/%name-%version.tar.bz2
 Buildrequires: libfftw-devel

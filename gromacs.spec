@@ -53,14 +53,6 @@ own analysis programs.
 %install
 %makeinstall
 
-mv $RPM_BUILD_ROOT/%_mandir/man1/disco.1 $RPM_BUILD_ROOT/%_mandir/man1/g_disco.1
-
-#mkdir -p $RPM_BUILD_ROOT/%_datadir/%name-%version
-#mv $RPM_BUILD_ROOT/%_datadir/html $RPM_BUILD_ROOT/%_datadir/%name-%version/
-#mv $RPM_BUILD_ROOT/%_datadir/top $RPM_BUILD_ROOT/%_datadir/%name-%version/
-#mv $RPM_BUILD_ROOT/%_datadir/template $RPM_BUILD_ROOT/%_datadir/%name-%version/
-#mv $RPM_BUILD_ROOT/%_datadir/tutor $RPM_BUILD_ROOT/%_datadir/%name-%version/
-
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 

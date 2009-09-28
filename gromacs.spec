@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 %define name gromacs
 %define version 3.3.2
 %define release %mkrel 4
@@ -9,9 +11,10 @@ Release: %release
 License: GPL
 Group: Sciences/Chemistry
 Buildroot: %_tmppath/%name-root
-Requires: fftw >= 2.1.3
+Requires: fftw >= 3.0.1
 Source: ftp://ftp.gromacs.org/pub/gromacs/%name-%version.tar.bz2
-Buildrequires: libfftw-devel
+Buildrequires: fftw-devel
+Buildrequires: gsl-devel
 Buildrequires: X11-devel
 URL: http://www.gromacs.org
 
@@ -44,7 +47,7 @@ own analysis programs.
 %setup -q
 
 %build
-%configure --disable-rpath
+%configure2_5x --with-gnu-ld --with-x --with-gsl --enable-shared --without-motif-libraries
 %make
 
 %install

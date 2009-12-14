@@ -1,7 +1,5 @@
-%define _disable_ld_no_undefined 1
-
 %define name gromacs
-%define version 4.0.5
+%define version 4.0.7
 %define release %mkrel 1
 
 Summary: Molecular dynamics package (non-mpi version)
@@ -12,7 +10,7 @@ License: GPL
 Group: Sciences/Chemistry
 Buildroot: %_tmppath/%name-root
 Requires: fftw >= 3.0.1
-Source: ftp://ftp.gromacs.org/pub/gromacs/%name-%version.tar.bz2
+Source: ftp://ftp.gromacs.org/pub/gromacs/%name-%version.tar.gz
 Buildrequires: fftw-devel
 Buildrequires: gsl-devel
 Buildrequires: X11-devel

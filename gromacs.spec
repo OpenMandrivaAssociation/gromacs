@@ -17,6 +17,8 @@ Buildrequires: gsl-devel
 Buildrequires: X11-devel
 URL: http://www.gromacs.org
 
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+
 %description
 GROMACS is a versatile and extremely well optimized package
 to perform molecular dynamics computer simulations and
@@ -50,6 +52,7 @@ own analysis programs.
 %make
 
 %install
+cd build
 %makeinstall
 
 %clean

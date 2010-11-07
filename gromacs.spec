@@ -11,6 +11,7 @@ Group: Sciences/Chemistry
 Buildroot: %_tmppath/%name-root
 Requires: fftw >= 3.0.1
 Source: ftp://ftp.gromacs.org/pub/gromacs/%name-%version.tar.gz
+Buildrequires: cmake
 Buildrequires: fftw-devel
 Buildrequires: gsl-devel
 Buildrequires: X11-devel

@@ -1,5 +1,5 @@
 %define name gromacs
-%define version 4.5.1
+%define version 4.5.2
 %define release %mkrel 1
 
 Summary: Molecular dynamics package (non-mpi version)
@@ -45,7 +45,7 @@ own analysis programs.
 %setup -q
 
 %build
-%configure2_5x --with-gnu-ld --with-x --with-gsl --enable-shared --without-motif-libraries
+%cmake
 %make
 
 %install

@@ -53,7 +53,7 @@ own analysis programs.
 
 %install
 cd build
-%makeinstall
+%makeinstall_std
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -62,13 +62,11 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(-,root,root)
 %doc AUTHORS COPYING README
 %_bindir/
-%_mandir/man1/*
+%_mandir/man*/*
 %_datadir/%name
-%_libdir/
+%_libdir/lib*
 
 %files devel
 %defattr(-,root,root)
 %_includedir/*
-%_libdir/*.a
-%_libdir/*.la
-
+%_libdir/pkgconfig/lib*

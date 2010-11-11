@@ -64,7 +64,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %_bindir/
 %_mandir/man*/*
 %_datadir/%name
-%_libdir/lib*
+%_prefix/lib/lib*
 
 %files devel
 %defattr(-,root,root)

@@ -69,4 +69,4 @@ rm -rf ${RPM_BUILD_ROOT}
 %files devel
 %defattr(-,root,root)
 %_includedir/*
-%_libdir/pkgconfig/lib*
+%_prefix/lib/pkgconfig/lib*

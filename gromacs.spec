@@ -1,5 +1,5 @@
 %define name gromacs
-%define version 4.5.2
+%define version 4.5.3
 %define release %mkrel 1
 
 Summary: Molecular dynamics package (non-mpi version)

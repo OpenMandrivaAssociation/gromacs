@@ -1,6 +1,6 @@
 %define name gromacs
 %define version 4.5.3
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Molecular dynamics package (non-mpi version)
 Name: %name
@@ -13,8 +13,7 @@ Requires: fftw >= 3.0.1
 Source: ftp://ftp.gromacs.org/pub/gromacs/%name-%version.tar.gz
 Buildrequires: cmake
 Buildrequires: fftw-devel
-Buildrequires: gsl-devel
-Buildrequires: X11-devel
+BuildRequires: libxml2-devel
 URL: http://www.gromacs.org
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -37,6 +36,8 @@ gromacs-lammpi.
 %package devel
 Summary: Header files and static libraries for GROMACS
 Group: Development/C++
+Requires: %name = %version
+Conflicts: %name < 4.5.3-2
 
 %description devel
 This package contains header files, static libraries,
@@ -48,12 +49,12 @@ own analysis programs.
 %setup -q
 
 %build
-%cmake
+%cmake -DLIB=%_lib
 %make
 
 %install
-cd build
-%makeinstall_std
+rm -rf %buildroot
+%makeinstall_std -C build
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -64,9 +65,10 @@ rm -rf ${RPM_BUILD_ROOT}
 %_bindir/
 %_mandir/man*/*
 %_datadir/%name
-%_prefix/lib/lib*
+%_libdir/*.so.*
 
 %files devel
 %defattr(-,root,root)
 %_includedir/*
-%_prefix/lib/pkgconfig/lib*
+%_libdir/*.so
+%_libdir/pkgconfig/*.pc

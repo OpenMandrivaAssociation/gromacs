@@ -50,6 +50,8 @@ own analysis programs.
 
 %build
 %cmake -DLIB=%_lib
+# OK, this is ugly, but working ...
+perl -pi -e "s/-lm/-lm -pthread/" src/gmxlib/CMakeFiles/gmx.dir/link.txt
 %make
 
 %install

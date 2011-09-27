@@ -49,7 +49,7 @@ own analysis programs.
 %setup -q
 
 %build
-%cmake -DLIB=%_lib
+%cmake -DLIB_INSTALL_DIR=%_libdir
 # OK, this is ugly, but working ...
 perl -pi -e "s/-lm/-lm -pthread/" src/gmxlib/CMakeFiles/gmx.dir/link.txt
 %make

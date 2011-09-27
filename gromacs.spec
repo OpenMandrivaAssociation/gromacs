@@ -37,7 +37,7 @@ gromacs-lammpi.
 Summary: Header files and static libraries for GROMACS
 Group: Development/C++
 Requires: %name = %version
-Conflicts: %name < 4.5.3-2
+Conflicts: %name < %version
 
 %description devel
 This package contains header files, static libraries,
@@ -47,9 +47,10 @@ own analysis programs.
 
 %prep
 %setup -q
+perl -pi -e "s|CMAKE_INSTALL_PREFIX}/lib|CMAKE_INSTALL_PREFIX}/%{_lib}|" CMakeLists.txt
 
 %build
-%cmake -DLIB_INSTALL_DIR=%_libdir
+%cmake
 # OK, this is ugly, but working ...
 perl -pi -e "s/-lm/-lm -pthread/" src/gmxlib/CMakeFiles/gmx.dir/link.txt
 %make

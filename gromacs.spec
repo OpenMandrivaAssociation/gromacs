@@ -1,7 +1,7 @@
 Summary: Molecular dynamics package (non-mpi version)
 Name:    gromacs
 Version: 4.6.1
-Release: 1
+Release: 2
 License: GPL
 Group: Sciences/Chemistry
 Requires: fftw >= 3.0.1

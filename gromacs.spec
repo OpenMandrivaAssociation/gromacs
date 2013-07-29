@@ -1,22 +1,16 @@
-%define name gromacs
-%define version 4.5.5
-%define release %mkrel 1
-
 Summary: Molecular dynamics package (non-mpi version)
-Name: %name
-Version: %version
-Release: %release
+Name:    gromacs
+Version: 4.6.1
+Release: 1
 License: GPL
 Group: Sciences/Chemistry
-Buildroot: %_tmppath/%name-root
 Requires: fftw >= 3.0.1
-Source: ftp://ftp.gromacs.org/pub/gromacs/%name-%version.tar.gz
+Source0: ftp://ftp.gromacs.org:21/pub/gromacs/%{name}-%{version}.tar.gz
+Source1: gromacs.rpmlintrc
 Buildrequires: cmake
 Buildrequires: fftw-devel
 BuildRequires: libxml2-devel
 URL: http://www.gromacs.org
-
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 GROMACS is a versatile and extremely well optimized package
@@ -36,8 +30,8 @@ gromacs-lammpi.
 %package devel
 Summary: Header files and static libraries for GROMACS
 Group: Development/C++
-Requires: %name = %version
-Conflicts: %name < %version
+Requires: %{name} = %{version}
+Conflicts: %{name} < %{version}
 
 %description devel
 This package contains header files, static libraries,
@@ -48,6 +42,8 @@ own analysis programs.
 %prep
 %setup -q
 perl -pi -e "s|CMAKE_INSTALL_PREFIX}/lib|CMAKE_INSTALL_PREFIX}/%{_lib}|" CMakeLists.txt
+perl -pi -e "s|set\(GMXLIB lib|set\(GMXLIB %{_lib}|" CMakeLists.txt
+find . -type f -exec chmod a+r {} \;
 
 %build
 %cmake
@@ -56,25 +52,19 @@ perl -pi -e "s/-lm/-lm -pthread/" src/gmxlib/CMakeFiles/gmx.dir/link.txt
 %make
 
 %install
-rm -rf %buildroot
 %makeinstall_std -C build
 
-%clean
-rm -rf ${RPM_BUILD_ROOT}
-
 %files
-%defattr(-,root,root)
 %doc AUTHORS COPYING README
-%_bindir/
-%_mandir/man*/*
-%_datadir/%name
-%_libdir/*.so.*
+%{_bindir}/*
+%{_mandir}/man*/*
+%{_datadir}/%{name}
+%{_libdir}/*.so.*
 
 %files devel
-%defattr(-,root,root)
-%_includedir/*
-%_libdir/*.so
-%_libdir/pkgconfig/*.pc
+%{_includedir}/*
+%{_libdir}/*.so
+%{_libdir}/pkgconfig/*.pc
 
 
 %changelog
@@ -146,7 +136,7 @@ rm -rf ${RPM_BUILD_ROOT}
 * Tue Apr 11 2006 Lenny Cartier <lenny@mandriva.com> 3.3.1-1mdk
 - 3.3.1
 
-* Mon Nov 07 2005 Nicolas Lécureuil <neoclust@mandriva.org> 3.3-2mdk
+* Mon Nov 07 2005 Nicolas LÃ©cureuil <neoclust@mandriva.org> 3.3-2mdk
 - Fix BuildRequires
 
 * Thu Oct 20 2005 Lenny Cartier <lenny@mandriva.com> 3.3-1mdk
@@ -164,3 +154,4 @@ rm -rf ${RPM_BUILD_ROOT}
 * Tue Dec 05 2002 Lenny Cartier <lenny@mandrakesoft.com> 3.1.4-1mdk 
 - from Austin Acton <aacton@yorkul.ca> :
 	- initial package for Mandrake 9.0+
+

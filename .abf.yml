@@ -1,2 +1,4 @@
+removed_sources:
+  gromacs-4.5.5.tar.gz: ce4b4f9a0453dd2ffea72f28ea0bc7bb7a72f479
 sources:
-  "gromacs-4.5.5.tar.gz": ce4b4f9a0453dd2ffea72f28ea0bc7bb7a72f479
+  gromacs-4.6.1.tar.gz: eec866db4d53b9561d75f4621f47dbe7f918ced8

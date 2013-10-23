@@ -1,11 +1,11 @@
 Summary: Molecular dynamics package (non-mpi version)
 Name:    gromacs
-Version: 4.6.1
-Release: 2
+Version: 4.6.3
+Release: 1
 License: GPL
 Group: Sciences/Chemistry
 Requires: fftw >= 3.0.1
-Source0: ftp://ftp.gromacs.org:21/pub/gromacs/%{name}-%{version}.tar.gz
+Source0: ftp://ftp.gromacs.org/pub/gromacs/%{name}-%{version}.tar.gz
 Source1: gromacs.rpmlintrc
 Buildrequires: cmake
 Buildrequires: fftw-devel
@@ -154,4 +154,5 @@ perl -pi -e "s/-lm/-lm -pthread/" src/gmxlib/CMakeFiles/gmx.dir/link.txt
 * Tue Dec 05 2002 Lenny Cartier <lenny@mandrakesoft.com> 3.1.4-1mdk 
 - from Austin Acton <aacton@yorkul.ca> :
 	- initial package for Mandrake 9.0+
+
 

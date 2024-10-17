@@ -10,7 +10,7 @@ Source1: gromacs.rpmlintrc
 Buildrequires: cmake
 Buildrequires: fftw-devel
 BuildRequires: libxml2-devel
-URL: http://www.gromacs.org
+URL: https://www.gromacs.org
 
 %description
 GROMACS is a versatile and extremely well optimized package
